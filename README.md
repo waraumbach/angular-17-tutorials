@@ -1,4 +1,6 @@
-# AngularStandalone
+![alt text](./src/assets/logo.png)
+
+# Angular17 Standalone Component
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
