@@ -25,6 +25,10 @@ export class SignalsApiComponent {
       console.log('count', this.count())
     })
 
+    effect(() => {
+      console.log('result', this.result())
+    })
+
   }
 
   increase() {
