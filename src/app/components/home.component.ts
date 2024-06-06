@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
       <p>Welcome to the Angular Standalone App!</p>
         @for (route of routes; track $index) {
           <div>
-             <a [routerLink]="route.path">{{ route.name}}</a>
+             <a [routerLink]="route.path">{{ $index+1 }}. {{ route.name}}</a>
           </div>
         }
     </div>
@@ -20,9 +20,9 @@ import { RouterLink } from '@angular/router';
 export class HomeComponent {
 
   routes = [
+    { path: 'standalone', name: 'standalone API' },
     { path: 'typed-forms', name: 'typed forms' },
     { path: 'new-di', name: 'new DI' },
-    { path: 'standalone', name: 'standalone API' },
     { path: 'signals', name: 'signals API' },
     { path: 'image-directive', name: 'image Directive' },
     { path: 'input-required', name: 'input required' },
