@@ -9,6 +9,11 @@ import { Component } from '@angular/core';
     <p>
       image-directive works!
     </p>
+
+    <div>
+      <img ngSrc="assets/logo.png" width="400" height="200" ngSrcset="100w, 200w, 300w"
+      sizes="(max-width: 768px) 100vw, 300vw"/>
+    </div>
     
   `,
 })
