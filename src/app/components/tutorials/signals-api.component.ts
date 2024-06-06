@@ -1,16 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-signals-api',
   standalone: true,
   imports: [],
   template: `
-    <p>
+    <div>
       signals-api works!
-    </p>
+     <button (click)="increase()">increase</button>
+     <button (click)="decrease()">decrease</button>
+     {{ count() }}
+     result: {{ result() }}
+    </div>
   `,
   styles: ``
 })
 export class SignalsApiComponent {
+
+  count = signal<number>(0)
+  result = computed(() => this.count() * 2)
+
+  constructor() {
+    effect(() => {
+      console.log('count', this.count())
+    })
+
+  }
+
+  increase() {
+    this.count.set(this.count() + 1)
+  }
+
+  decrease() {
+    this.count.set(this.count() - 1)
+  }
 
 }
