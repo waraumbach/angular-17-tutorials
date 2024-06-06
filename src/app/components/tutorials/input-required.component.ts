@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { Component, input, output } from '@angular/core';
       <h2>Child component</h2>
       <p>{{ name() }}</p>
       <button (click)="nameChanged('angular 17')">Change name</button>
+      child: {{ myName() }}
     </div>
   `,
 })
@@ -17,9 +18,11 @@ import { Component, input, output } from '@angular/core';
 export class ChildComponent {
   name = input.required<string>()
   nameChange = output<string>()
+  myName = model<string>()
 
   nameChanged(newName: string) {
     this.nameChange.emit(newName)
+    this.myName.set(newName)
   }
 }
 
@@ -29,11 +32,17 @@ export class ChildComponent {
   standalone: true,
   imports: [ChildComponent],
   template: `
-    <app-child [name]="name" (nameChange)="nameChange($event)"/>
+    <app-child
+    [name]="name"
+    [(myName)]="myName"
+    (nameChange)="nameChange($event)"/>
+    model: {{ myName() }} <br />
+    <button (click)="myName.set('angular 18')">Change model parent</button>
   `,
 })
 export class InputRequiredComponent {
   name = 'angular'
+  myName = model<string>('parent')
 
   nameChange(evt: string) {
     console.log('name changed', evt)
