@@ -35,7 +35,7 @@ export class ChildComponent {
     <app-child
     [name]="name"
     [(myName)]="myName"
-    (nameChange)="nameChange($event)"/>
+    (nameChange)="nameChange($event)" />
     model: {{ myName() }} <br />
     <button (click)="myName.set('angular 18')">Change model parent</button>
   `,
