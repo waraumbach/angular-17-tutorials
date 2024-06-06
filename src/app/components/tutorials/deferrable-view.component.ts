@@ -1,15 +1,33 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-deferrable-view',
+  selector: 'app-large',
   standalone: true,
   imports: [],
   template: `
-    <p>
-      deferrable-view works!
-    </p>
+    <h1>Large Component</h1>
   `,
-  styles: ``
+})
+export class LargeComponent {
+
+}
+
+
+@Component({
+  selector: 'app-deferrable-view',
+  standalone: true,
+  imports: [LargeComponent],
+  template: `
+    <button #trigger>trigger</button>
+
+    @defer(on hover(trigger)) {
+      <app-large />
+    }@placeholder(minimum 50ms) {
+      <div>Loading...</div>
+    }@error {
+      <div>Error... loading</div>
+    }
+  `,
 })
 export class DeferrableViewComponent {
 

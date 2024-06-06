@@ -24,7 +24,7 @@ import { Component, signal } from '@angular/core';
 
     <h1>switch case</h1>
     @switch (gender()) {
-      @case (1){
+      @case (1) {
         <div>Male</div>
       }
       @case (2) {
