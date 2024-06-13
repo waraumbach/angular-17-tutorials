@@ -14,6 +14,7 @@ import { NewInputOutputComponent } from '../../components/tutorials/new-input-ou
 import { SignalsApiComponent } from '../../components/tutorials/signals-api.component';
 import { StandaloneApiComponent } from '../../components/tutorials/standalone-api.component';
 import { TypedFormsComponent } from '../../components/tutorials/typed-forms.component';
+import { ViewChildQueryComponent } from '../../components/tutorials/view-child-query.component';
 import { ViewTransitionApiComponent } from '../../components/tutorials/view-transition-api.component';
 
 const routes: Routes = [
@@ -76,6 +77,10 @@ const routes: Routes = [
   {
     path: 'model-2-way-binding',
     component: Model2WayBindingComponent,
+  },
+  {
+    path: 'view-child-query',
+    component: ViewChildQueryComponent,
   },
   {
     path: '**',

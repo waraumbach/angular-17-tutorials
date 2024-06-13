@@ -20,11 +20,13 @@ export class LargeComponent {
   template: `
     <button #trigger>trigger</button>
 
-    @defer(on hover(trigger)) {
+    @defer(on interaction(trigger)) {
       <app-large />
     }@placeholder(minimum 50ms) {
+      <div>wating...</div>
+    }@loading {
       <div>Loading...</div>
-    }@error {
+    } @error {
       <div>Error... loading</div>
     }
   `,
