@@ -50,7 +50,6 @@ export class ViewChildQueryComponent {
 
   setFocus() {
     this.qty().nativeElement.focus()
-
   }
 
   addItem() {
