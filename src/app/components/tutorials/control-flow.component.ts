@@ -1,13 +1,22 @@
+import { NgIf } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-control-flow',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   template: `
     <p>
       control-flow works!
     </p>
+
+    <div *ngIf="qty() > 20;">
+      {{ qty() }} > 20
+    </div>
+
+    <div *ngIf="qty() <= 20;">
+      {{ qty() }} <= 20
+    </div>
 
     @if(qty() > 20){
       div: {{ qty() }} > 20
